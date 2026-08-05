@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Joycee Mekie - Academic Profile</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-dark: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-light: #f9fafb;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            border-left: 6px solid var(--primary);
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .institution {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            font-size: 0.95rem;
+            background: var(--primary-light);
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+        }
+
+        .contact-item strong {
+            color: var(--primary);
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .pill {
+            background-color: var(--primary-light);
+            color: var(--accent);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #bfdbfe;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Tabs Navigation */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 1.5rem;
+            gap: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: var(--accent);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        ol.pub-list {
+            padding-left: 1.2rem;
+        }
+
+        ol.pub-list li {
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        ol.pub-list li:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .award-badge {
+            display: inline-block;
+            background-color: #fef3c7;
+            color: #92400e;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .doi-link {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .doi-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER SECTION -->
+    <header>
+        <h1>Prof. (Ms.) Joycee Mekie</h1>
+        <div class="subtitle"> Professor, Department of Electrical Engineering
+        Jointly with Computer Science and Engineering Discipline</div>
+        <div class="institution">Indian Institute of Technology Gandhinagar </div>
+        
+        <div class="contact-grid">
+            <div class="contact-item"><strong>Email:</strong> joycee[at]iitgn.ac.in</div>
+            <div class="contact-item"><strong>Office Phone:</strong> (79) 2395 2409</div>
+            <div class="contact-item"><strong>Address:</strong> AB13/327-C, Department of Electrical Engineering, IIT Gandhinagar, Near Palaj, Gandhinagar, 382355</div>
+          </div>
+    </header>
+
+    <!-- RESEARCH INTERESTS -->
+    <section class="section-card">
+        <h2>Research Interests</h2>
+        <div class="pills">
+            <span class="pill">AI Hardware design</span>
+            <span class="pill">Compute-In-Memory architectures</span>
+            <span class="pill">Embedded memories</span>
+            <span class="pill">Approximate computing</span>
+            <span class="pill">Radiation hardened circuits/systems</span>
+            <span class="pill">Asynchronous circuits/designs</span>
+            <span class="pill">Asynchronous/Synchronous Network on chip architectures</span>
+        </div>
+    </section>
+
+    <!-- AWARDS & RECOGNITIONS -->
+    <section class="section-card">
+        <h2>Awards & Recognitions</h2>
+        <ul>
+            <li>Excellence in Teaching Award / Outstanding Teaching Award, IIT Gandhinagar (2022–2023)</li>
+            <li>Young Faculty Research Award, Visvesvaraya PhD Scheme, MEITY (2018–2023)</li>
+            <li>Best Poster Paper Award, VLSID 2024</li>
+            <li>Best Paper Award in Women In Engineering, APCCAS 2023</li>
+            <li>Best Paper Nominee: DATE 2023, ASPDAC 2023, VLSID 2019</li>
+        </ul>
+    </section>
+
+    <!-- GRANTS & FUNDING -->
+    <section class="section-card">
+        <h2>Research Grants & Projects</h2>
+        <ul>
+            <li><strong>Chips-to-Systems Grant (MEITY):</strong> </li>
+            <li><strong>SERB-SUPRA:</strong> "In Memory Computing for Next Generation Workloads Using Emerging Memory Technologies,"  [Co-PI: Manu Awasthi, Ashoka University]</li>
+            <li><strong>Semiconductor Research Corporation, USA:</strong> "Fast, Robust, Energy-aware In-Memory Computing Architectures,"  [Co-PI: Manu Awasthi, Ashoka University]</li>
+            <li><strong>SERB-DST:</strong> "Comparative Study of Soft Error Tolerant Synchronous and Asynchronous Processors,"</li>
+            <li><strong>MATRIC SERB-DST:</strong> "Estimating error probabilities due to multiple event transients in circuits designed for space applications based on electrical, temporal and logical masking," </li>
+            <li><strong>Young Faculty Research Fellowship (YFRF, MEITY):</strong> (2018–2023)</li>
+            <li><strong>GIAN:</strong> "Asynchronous and Synchronous approaches to Network-on-chip (NoC) architecture design,"  (June 2016)</li>
+            <li><strong>DST (Fast-track scheme):</strong> "Experimental studies of metastability in different synchronizers,"  (2012–2016)</li>
+            <li><strong>SMDP:C2SD (MEITY):</strong> "Special manpower development project: Chips to System design,"  [Co-PI]</li>
+            <li><strong>SMDP-C2SD Chip Tape-out grant:</strong>  for testing "Radiation-hard-by-design Standard Cell Library" (2019–2020)</li>
+        </ul>
+    </section>
+
+    <!-- THESIS SUPERVISION -->
+    <section class="section-card">
+        <h2>Thesis Supervision</h2>
+        <div class="grid-2">
+            <div>
+                <h3>Doctoral Thesis (Ongoing)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Topic / Focus</th>
+                            <th>Joined</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Sanjay Markandeya</td><td>Hardware Security Module for Post-Quantum Cryptography (Currently Interning at NXP Semiconductors, India) </td><td>Aug 2025</td></tr>
+                        <tr><td>Bendamuri Mohan</td><td>Hardware Security Module for Post-Quantum Cryptography</td><td>Aug 2025</td></tr>
+                        <tr><td>Shruti</td><td>Mixed-Signal In Memory Computing for Data intensive applications</td><td>Aug 2025</td></tr>
+                        <tr><td>Sanjay Yadav</td><td>Energy Efficient Architectures for In Memory Computing (CDP)</td><td>Jan 2025</td></tr>
+                        <tr><td>Sri Divya</td><td>Exploring CMOS-Memristor Logic for In memory computing architectures (CDP)</td><td>Jan 2025</td></tr>
+                        <tr><td>Himanshu Patel</td><td>Fault Tolerant RISC-V based Accelerators (ISRO-IITGN collab)</td><td>Aug 2024</td></tr>
+                        <tr><td>Jimit J. Gadhia</td><td>Energy Efficient Image Enhancement Techniques for Space Applications (ISRO-IITGN collab)</td><td>Aug 2024</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h3>Doctoral Thesis (Completed)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Topic / Affiliation</th>
+                            <th>Graduation / Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Sneha N. Ved</td><td>ASOCC: An Evaluation Framework for NoC Architectures (Intel PhD fellow)</td><td>Graduated: July 2020</td></tr>
+                        <tr><td>Neelam Surana</td><td>Opportunistic Context-Aware Energy-Efficient Embedded Memory (Visvesvaraya fellow)</td><td>Graduated: August 2020</td></tr>
+                        <tr><td>Chandan Kumar Jha</td><td>Approximate Designs and Frameworks for Error Resilient Applications (Visvesvaraya fellow)</td><td>Graduated: November 2020</td></tr>
+                        <tr><td>Pramod Kumar Bharti</td><td>Design and Analysis of Performance-Efficient On-Chip Memories</td><td>Graduated: June 2024</td></tr>
+                        <tr><td>Tom Glint Isaac</td><td>Hardware Accelerators for Emerging ML Workloads Using HW-SW Co-Design</td><td>Graduated: June 2024</td></tr>
+                        <tr><td>Kailash Prasad</td><td>Domain-Specific Hardware Design (Prime Minister’s PhD fellow)</td><td>Graduated: June 2024</td></tr>
+                     </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- PUBLICATIONS & TALKS TABBED SECTION -->
+    <section class="section-card">
+        <h2>Publications & Presentations</h2>
+        
+        <!-- TAB BUTTONS -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab(event, 'journals')">Journal Publications</button>
+            <button class="tab-button" onclick="switchTab(event, 'conferences')">Conference Publications</button>
+            <button class="tab-button" onclick="switchTab(event, 'talks')">Tutorials, Talks & CEPs</button>
+        </div>
+
+        <!-- TAB 1: JOURNALS -->
+        <div id="journals" class="tab-content active">
+            <h3>Journal Publications</h3>
+            <ol class="pub-list">
+                <li>
+                    <span class="pub-title">AxLaM: energy-efficient accelerator design for language models for edge computing</span><br>
+                    Tom Glint, Bhumika Mittal, Santripta Sharma, Abdul Qadir Ronak, Abhinav Goud, Neerja Kasture, Zaqi Momin, Aravind Krishna, Joycee Mekie.<br>
+                    <em>Philos Trans A Math Phys Eng Sci</em> 16 January 2025; 383 (2288): 20230395. 
+                    <a class="doi-link" href="https://doi.org/10.1098/rsta.2023.0395" target="_blank">doi: 10.1098/rsta.2023.0395</a>
+                </li>
+                <li>
+                    <span class="pub-title">Single Exact Single Approximate Adders and Single Exact Dual Approximate Adders</span><br>
+                    C. K. Jha, A. Nandi and J. Mekie.<br>
+                    <em>IEEE Transactions on Very Large Scale Integration (VLSI) Systems</em>, vol. 31, no. 7, pp. 907-916, July 2023. 
+                    <a class="doi-link" href="https://doi.org/10.1109/TVLSI.2023.3268275" target="_blank">doi: 10.1109/TVLSI.2023.3268275</a>
+                </li>
+                <li>
+                    <span class="pub-title">HyGain: High-performance, Energy-efficient Hybrid Gain Cell-based Cache Hierarchy</span><br>
+                    Sarabjeet Singh, Neelam Surana, Kailash Prasad, Pranjali Jain, Joycee Mekie, and Manu Awasthi.<br>
+                    <em>ACM Trans. Archit. Code Optim.</em> 20, 2, Article 24 (June 2023), 20 pages. 
+                    <a class="doi-link" href="https://doi.org/10.1145/3572839" target="_blank">doi: 10.1145/3572839</a>
+                </li>
+                <li>
+                    <span class="pub-title">A 10T, 0.22fJ/Bit/Search Mixed-vt Pseudo Precharge-Free Content Addressable Memory</span><br>
+                    Datta, Diptesh, Neelam Surana, Anoop Kumar, and Joycee Mekie.<br>
+                    <em>IEEE Transactions on Circuits and Systems II: Express Briefs</em>, 2021. 
+                    <a class="doi-link" href="https://doi.org/10.1109/tcsii.2021.3103880" target="_blank">doi: 10.1109/tcsii.2021.3103880</a>
+                </li>
+                <li>
+                    <span class="pub-title">Fast and Low-Power Quantized Fixed Posit High-Accuracy DNN Implementation</span><br>
+                    S. Walia, B. V. Tej, A. Kabra, J. Devnath and J. Mekie.<br>
+                    <em>IEEE Transactions on Very Large Scale Integration (VLSI) Systems</em>, vol. 30, no. 1, pp. 108-111, Jan. 2022. 
+                    <a class="doi-link" href="https://doi.org/10.1109/TVLSI.2021.3131609" target="_blank">doi: 10.1109/TVLSI.2021.3131609</a>
+                </li>
+                <li>
+                    <span class="pub-title">Zero Aware Configurable Data Encoding by Skipping Transfer for Error Resilient Applications</span><br>
+                    C. K. Jha, S. Singh, R. Thakker, M. Awasthi and J. Mekie.<br>
+                    <em>IEEE Transactions on Circuits and Systems I: Regular Papers</em>, vol. 68, no. 8, pp. 3337-3350, Aug. 2021. 
+                    <a class="doi-link" href="https://doi.org/10.1109/TCSI.2021.3081623" target="_blank">doi: 10.1109/TCSI.2021.3081623</a>
+                </li>
+                <li>
+                    <span class="pub-title">Fixed-Posit: A Floating-Point Representation for Error-Resilient Applications</span><br>
+                    V. Gohil, S. Walia, J. Mekie and M. Awasthi.<br>
+                    <em>IEEE Transactions on Circuits and Systems II: Express Briefs</em>, vol. 68, no. 10, pp. 3341-3345, Oct. 2021. 
+                    <a class="doi-link" href="https://doi.org/10.1109/TCSII.2021.3072217" target="_blank">doi: 10.1109/TCSII.2021.3072217</a>
+                </li>
+                <li>
+                    <span class="pub-title">Analysis of Worst-Case Data Dependent Temporal Approximation in Floating Point Units</span><br>
+                    C. K. Jha, I. Doshi and J. Mekie.<br>
+                    <em>IEEE Transactions on Circuits and Systems II: Express Briefs</em>, vol. 68, no. 2, pp. 767-771, Feb. 2021. 
+                    <a class="doi-link" href="https://doi.org/10.1109/TCSII.2020.3012194" target="_blank">doi: 10.1109/TCSII.2020.3012194</a>
+                </li>
+                <li>
+                    <span class="pub-title">SERAD: Soft Error Resilient Asynchronous Design Using a Bundled Data Protocol</span><br>
+                    S. A. Aketi, S. Gupta, H. Cheng, J. Mekie and P. A. Beerel.<br>
+                    <em>IEEE Transactions on Circuits and Systems I: Regular Papers</em>, vol. 67, no. 5, pp. 1667-1677, May 2020. 
+                    <a class="doi-link" href="https://doi.org/10.1109/TCSI.2020.2965073" target="_blank">doi: 10.1109/TCSI.2020.2965073</a>
+                </li>
+                <li>
+                    <span class="pub-title">Energy and Error Analysis Framework for Approximate Computing in Mobile Applications</span><br>
+                    C. K. Jha, S. N. Ved, I. Anand and J. Mekie.<br>
+                    <em>IEEE Transactions on Circuits and Systems II: Express Briefs</em>, vol. 67, no. 2, pp. 385-389, Feb. 2020. 
+                    <a class="doi-link" href="https://doi.org/10.1109/TCSII.2019.2910137" target="_blank">doi: 10.1109/TCSII.2019.2910137</a>
+                </li>
+                <li>
+                    <span class="pub-title">Hetro8T: power and area efficient approximate heterogeneous 8T SRAM for H.264 video decoder</span><br>
+                    Bharti, Pramod K, N. Surana and J. Mekie.<br>
+                    <em>IET Computers & Digital Techniques</em>, vol. 13, no.6, pp. 505-513, 2019.
+                </li>
+                <li>
+                    <span class="pub-title">Energy Efficient Single-Ended 6-T SRAM for Multimedia Applications</span><br>
+                    N. Surana and J. Mekie.<br>
+                    <em>IEEE Transactions on Circuits and Systems II: Express Briefs</em>, vol. 66, no. 6, pp. 1023-1027, June 2019. 
+                    <a class="doi-link" href="https://doi.org/10.1109/TCSII.2018.2869945" target="_blank">doi: 10.1109/TCSII.2018.2869945</a>
+                </li>
+                <li>
+                    <span class="pub-title">PANE: Pluggable Asynchronous Network-on-Chip Simulator</span><br>
+                    Ved Sneha N, Sarabjeet Singh and Joycee Mekie.<br>
+                    <em>ACM Journal Emerging Technologies in Computing Systems</em>, vol. 15, issue 1, article no. 7, January 2019. 
+                    <a class="doi-link" href="https://doi.org/10.1145/3241051" target="_blank">doi: 10.1145/3241051</a>
+                </li>
+                <li>
+                    <span class="pub-title">Reasoning about Synchronization using Abstract Timing Diagrams</span><br>
+                    S. Chakraborty, J. Mekie and D. K. Sharma.<br>
+                    <em>Formal Methods in System Design (FMSD)</em>, Special Issue on GALS Systems, vol. 28, no. 2, pp. 153-169, March 2006.
+                </li>
+            </ol>
+        </div>
+
+        <!-- TAB 2: CONFERENCES -->
+        <div id="conferences" class="tab-content">
+            <h3>Conference Publications</h3>
+            <ol class="pub-list">
+                <li>
+                    <span class="pub-title">VeriBench: Benchmarking Large Language Models for Verilog Code Generation and Design Synthesis</span><br>
+                    M. Agarwal, Z. Momin, K. Prasad and J. Mekie. <em>IEEE ISCAS</em>, 2025. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ISCAS56072.2025.11044004" target="_blank">doi: 10.1109/ISCAS56072.2025.11044004</a>
+                </li>
+                <li>
+                    <span class="pub-title">DTQ-16T: Double Node Upset Tolerant Quadruple SRAM for Space Applications</span><br>
+                    P. K. Bharti, G. Prasad, M. P. Kumar and J. Mekie. <em>IEEE ISCAS</em>, 2025. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ISCAS56072.2025.11044171" target="_blank">doi: 10.1109/ISCAS56072.2025.11044171</a>
+                </li>
+                <li>
+                    <span class="pub-title">HyCMAx: Power-Efficient Hybrid CMOS-Memristor Based Approximate Dividers for Error-Resilient Applications</span><br>
+                    M. Pokharia, H. Trivedi, S. Doshi, R. S. Hegde and J. Mekie. <em>VLSID</em>, 2025. 
+                    <a class="doi-link" href="https://doi.org/10.1109/VLSID64188.2025.00092" target="_blank">doi: 10.1109/VLSID64188.2025.00092</a>
+                </li>
+                <li>
+                    <span class="pub-title">OwlsEye: Real-Time Low-Light Video Instance Segmentation on Edge and Exploration of Fixed-Posit Quantization</span><br>
+                    G. Shah, A. Goud, Z. Momin, J. Mekie. <em>VLSID</em>, 2025. 
+                    <a class="doi-link" href="https://doi.org/10.1109/VLSID64188.2025.00090" target="_blank">doi: 10.1109/VLSID64188.2025.00090</a>
+                </li>
+                <li>
+                    <span class="pub-title">DeepFrack: A Comprehensive Framework for Layer Fusion, Face Tiling, and Efficient Mapping in DNN Hardware Accelerators</span><br>
+                    Tom Glint, Mithil Pechimuthu and Joycee Mekie. <em>DATE</em>, 2024. 
+                    <a class="doi-link" href="https://doi.org/10.23919/DATE58400.2024.10546624" target="_blank">doi: 10.23919/DATE58400.2024.10546624</a>
+                </li>
+                <li>
+                    <span class="pub-title">COMPRIZE: Assessing the Fusion of Quantization and Compression on DNN Hardware Accelerators</span><br>
+                    Vrajesh Patel, Neel Shah, Aravind Krishna, Tom Glint, Abdul Ronak and Joycee Mekie. <em>VLSID</em>, 2024.
+                </li>
+                <li>
+                    <span class="pub-title">Hybrid CMOS-Memristor Logic for Boosting the Power-Efficiency in Error Tolerant Applications</span>
+                    <span class="award-badge">Best Poster Paper Award</span><br>
+                    Monika Pokharia, Kailash Prasad, Ravi Hegde and Joycee Mekie. <em>VLSID</em>, 2024.
+                </li>
+                <li>
+                    <span class="pub-title">SDR-PUF: Sequence-Dependent Reconfigurable SRAM PUF with an Exponential CRP Space</span><br>
+                    Kailash Prasad, Neel Shah, Jinay Dagli and Joycee Mekie. <em>VLSID</em>, 2024.
+                </li>
+                <li>
+                    <span class="pub-title">Robust and High-Performance Digital In-Memory Computing in 5T Gain Cell Embedded DRAM VLSI for Embedded Intelligence</span><br>
+                    Prasad, K., Borkar, R., Mekie, J. <em>VDAT 2023, Springer</em>, 2025. 
+                    <a class="doi-link" href="https://doi.org/10.1007/978-981-97-3756-7_6" target="_blank">doi: 10.1007/978-981-97-3756-7_6</a>
+                </li>
+                <li>
+                    <span class="pub-title">FP-BMAC: Efficient Approximate Floating-Point Bit-Parallel MAC Processor using IMC</span><br>
+                    Saketh Gajawada, Aryan Gupta, Kailash Prasad and Joycee Mekie. <em>VLSID</em>, 2024.
+                </li>
+                <li>
+                    <span class="pub-title">FP-ATM: A Flexible Floating Point NOR Adder Tree Macro for In-Memory Computing</span><br>
+                    Yathin Attuluri, Ruchit Chudasama, Kailash Prasad and Joycee Mekie. <em>VLSID</em>, 2024.
+                </li>
+                <li>
+                    <span class="pub-title">CANSim: When to Utilize Synchronous and Asynchronous Routers in Large and Complex NoCs</span><br>
+                    Tom Glint, Manu Awasthi, Joycee Mekie. <em>ASP-DAC</em>, 2024.
+                </li>
+                <li>
+                    <span class="pub-title">Hardware-Software Co-Design of a Collaborative Accelerator for 3D Stacked Memories with Multi-Channel Data</span><br>
+                    Tom Glint, Manu Awasthi, Joycee Mekie. <em>ASP-DAC</em>, 2024.
+                </li>
+                <li>
+                    <span class="pub-title">Hardware-Software Codesign of DNN Accelerators using Approximate Posit Multipliers</span><br>
+                    T. Glint et al. <em>ASP-DAC</em>, 2023, pp. 469-474.
+                </li>
+                <li>
+                    <span class="pub-title">Power-Efficient Approximate Multipliers Leveraging Hybrid CMOS-Memristor Paradigm</span>
+                    <span class="award-badge">Best Paper Award in WIE</span><br>
+                    M. Pokharia, R. Hegde, J. Mekie. <em>APCCAS</em>, 2023.
+                </li>
+                <li>
+                    <span class="pub-title">Analysis of Quantization Across DNN Accelerator Architecture Paradigms</span><br>
+                    T. Glint, C. K. Jha, M. Awasthi and J. Mekie. <em>DATE</em>, 2023, pp. 1-2. 
+                    <a class="doi-link" href="https://doi.org/10.23919/DATE56975.2023.10136899" target="_blank">doi: 10.23919/DATE56975.2023.10136899</a>
+                </li>
+                <li>
+                    <span class="pub-title">Process Variation Resilient Current-Domain Analog In Memory Computing</span><br>
+                    K. Prasad, S. Shubham, A. Biswas and J. Mekie. <em>DATE</em>, 2023, pp. 1-2. 
+                    <a class="doi-link" href="https://doi.org/10.23919/DATE56975.2023.10137088" target="_blank">doi: 10.23919/DATE56975.2023.10137088</a>
+                </li>
+                <li>
+                    <span class="pub-title">PIC-RAM: Process-Invariant Capacitive Multiplier Based Analog In Memory Computing in 6T SRAM</span>
+                    <span class="award-badge">Best Paper Nominee</span><br>
+                    K. Prasad, A. Biswas, A. Kabra and J. Mekie. <em>DATE</em>, 2023, pp. 1-6. 
+                    <a class="doi-link" href="https://doi.org/10.23919/DATE56975.2023.10137338" target="_blank">doi: 10.23919/DATE56975.2023.10137338</a>
+                </li>
+                <li>
+                    <span class="pub-title">Fast and Robust Sense Amplifier for Digital In Memory Computing</span><br>
+                    K. Prasad, A. Srivastava, N. Baruah and J. Mekie. <em>VLSID</em>, 2023, pp. 258-263. 
+                    <a class="doi-link" href="https://doi.org/10.1109/VLSID57277.2023.00060" target="_blank">doi: 10.1109/VLSID57277.2023.00060</a>
+                </li>
+                <li>
+                    <span class="pub-title">Hardware-Software Codesign of DNN Accelerators using Approximate Posit Multipliers</span>
+                    <span class="award-badge">Best Paper Nominee</span><br>
+                    K. Prasad*, T. Glint*, J. Dagli, K. Gandhi, A. Gupta, V. Patel, N. Shah and J. Mekie. <em>IEEE ASPDAC</em>, 2023.
+                </li>
+                <li>
+                    <span class="pub-title">Impact of Operand Ordering in Approximate Multiplication in Neural Network and Image Processing Applications</span><br>
+                    Prasad, K., Dagli, J., Shah, N., Pidagannavar, M., Mekie, J. <em>VDAT</em>, 2022. 
+                    <a class="doi-link" href="https://doi.org/10.1007/978-3-031-21514-8_46" target="_blank">doi: 10.1007/978-3-031-21514-8_46</a>
+                </li>
+                <li>
+                    <span class="pub-title">RTQCC-14T: Radiation Tolerant Quadruple Cross Coupled Robust SRAM Design for Radiation Prone Environments</span><br>
+                    Bharti, P.K., Mekie, J. <em>VDAT</em>, 2022. 
+                    <a class="doi-link" href="https://doi.org/10.1007/978-3-031-21514-8_40" target="_blank">doi: 10.1007/978-3-031-21514-8_40</a>
+                </li>
+                <li>
+                    <span class="pub-title">Compute-In-Memory Using 6T SRAM for a Wide Variety of Workloads</span><br>
+                    P. Bharti, S. Jain, K. Pillai, S. Sayyaparaju, G. Kalsi, J. Mekie, S. Subramoney. <em>IEEE ISCAS</em>, 2022.
+                </li>
+                <li>
+                    <span class="pub-title">An Automated Approach to Compare Bit Serial and Bit Parallel In-Memory Computing for DNNs</span><br>
+                    K. Prasad*, A. Parmar*, N. Rao, and J. Mekie. <em>IEEE ISCAS</em>, 2022.
+                </li>
+                <li>
+                    <span class="pub-title">FastMem: A Fast Architecture-aware Memory Layout Design</span><br>
+                    A. Parmar, K. Prasad, N. Rao, and J. Mekie. <em>IEEE ISQED</em>, 2022.
+                </li>
+                <li>
+                    <span class="pub-title">RHSCC-16T: Radiation Hardened Sextuple Cross Coupled Robust SRAM Design for Radiation Prone Environments</span><br>
+                    Pramod Kumar Bharti, and Joycee Mekie. <em>IEEE ICCD</em>, 2022.
+                </li>
+                <li>
+                    <span class="pub-title">GBRHQ-14T: Gate Boosted Radiation Hardened Quadruple SRAM Design for Space Applications</span><br>
+                    Pramod Kumar Bharti, and Joycee Mekie. <em>IEEE ICEE</em>, 2022.
+                </li>
+                <li>
+                    <span class="pub-title">Analysis of Word Line Shaping Techniques for In-Memory Computing in SRAMs</span><br>
+                    K. Prasad, A. Biswas and J. Mekie. <em>IEEE ICECS</em>, 2021, pp. 1-6. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ICECS53924.2021.9665469" target="_blank">doi: 10.1109/ICECS53924.2021.9665469</a>
+                </li>
+                <li>
+                    <span class="pub-title">FPCAM: Floating Point Configurable Approximate Multiplier for Error Resilient Applications</span><br>
+                    C. K. Jha, S. Walia, G. Kanojia and J. Mekie. <em>IEEE ISCAS</em>, 2021, pp. 1-5.
+                </li>
+                <li>
+                    <span class="pub-title">ANSim: A Fast and Versatile Asynchronous Network-On-Chip Simulator</span><br>
+                    T. Glint, J. Sah, M. Awasthi and J. Mekie. <em>IEEE ICCD</em>, 2020, pp. 619-622. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ICCD50377.2020.00107" target="_blank">doi: 10.1109/ICCD50377.2020.00107</a>
+                </li>
+                <li>
+                    <span class="pub-title">A Low-Voltage Split Memory Architecture for Binary Neural Networks</span><br>
+                    J. K. Devnath, N. Surana and J. Mekie. <em>IEEE ISCAS</em>, 2020, pp. 1-5. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ISCAS45731.2020.9180862" target="_blank">doi: 10.1109/ISCAS45731.2020.9180862</a>
+                </li>
+                <li>
+                    <span class="pub-title">SEDAAF: FPGA Based Single Exact Dual Approximate Adders for Approximate Processors</span><br>
+                    C. K. Jha, K. Prasad, A. S. Tomar and J. Mekie. <em>IEEE ISCAS</em>, 2020, pp. 1-5. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ISCAS45731.2020.9181185" target="_blank">doi: 10.1109/ISCAS45731.2020.9181185</a>
+                </li>
+                <li>
+                    <span class="pub-title">FPAD: A Multistage Approximation Methodology for Designing Floating Point Approximate Dividers</span><br>
+                    C. K. Jha, K. Prasad, V. K. Srivastava and J. Mekie. <em>IEEE ISCAS</em>, 2020, pp. 1-5.
+                </li>
+                <li>
+                    <span class="pub-title">Tunable Inexact Subtracters for Division in Image Processing Applications</span><br>
+                    A. Nandi, C. K. Jha and J. Mekie. <em>IEEE MWSCAS</em>, 2020, pp. 1100-1103. 
+                    <a class="doi-link" href="https://doi.org/10.1109/MWSCAS48704.2020.9184460" target="_blank">doi: 10.1109/MWSCAS48704.2020.9184460</a>
+                </li>
+                <li>
+                    <span class="pub-title">Robust and High-Performance 12-T Interlocked SRAM for In-Memory Computing</span><br>
+                    N. Surana, M. Lavania, A. Barma and J. Mekie. <em>DATE</em>, 2020, pp. 1323-1326. 
+                    <a class="doi-link" href="https://doi.org/10.23919/DATE48585.2020.9116361" target="_blank">doi: 10.23919/DATE48585.2020.9116361</a>
+                </li>
+                <li>
+                    <span class="pub-title">A Mathematical Approach Towards Quantization of Floating Point Weights in Low Power Neural Networks</span><br>
+                    J. K. Devnath, N. Surana and J. Mekie. <em>VLSID</em>, 2020, pp. 177-182. 
+                    <a class="doi-link" href="https://doi.org/10.1109/VLSID49098.2020.00048" target="_blank">doi: 10.1109/VLSID49098.2020.00048</a>
+                </li>
+                <li>
+                    <span class="pub-title">Quality Tunable Approximate Adder for Low Energy Image Processing Applications</span><br>
+                    C. K. Jha, A. Nandi and J. Mekie. <em>IEEE ICECS</em>, 2019, pp. 642-645. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ICECS46596.2019.8965205" target="_blank">doi: 10.1109/ICECS46596.2019.8965205</a>
+                </li>
+                <li>
+                    <span class="pub-title">Should We Code Differently When Using Approximate Circuits?</span><br>
+                    A. Nandi, C. K. Jha and J. Mekie. <em>IEEE APCCAS</em>, 2019, pp. 37-40. 
+                    <a class="doi-link" href="https://doi.org/10.1109/APCCAS47518.2019.8953113" target="_blank">doi: 10.1109/APCCAS47518.2019.8953113</a>
+                </li>
+                <li>
+                    <span class="pub-title">Design of Novel CMOS Based Inexact Subtractors and Dividers for Approximate Computing: An In-Depth Comparison with PTL Based Designs</span><br>
+                    C. K. Jha and J. Mekie. <em>Euromicro DSD</em>, 2019, pp. 174-181. 
+                    <a class="doi-link" href="https://doi.org/10.1109/DSD.2019.00034" target="_blank">doi: 10.1109/DSD.2019.00034</a>
+                </li>
+                <li>
+                    <span class="pub-title">SEDA - Single Exact Dual Approximate Adders for Approximate Processors</span><br>
+                    C. K. Jha and J. Mekie. <em>ACM/IEEE DAC</em>, 2019, pp. 1-2.
+                </li>
+                <li>
+                    <span class="pub-title">Read-Decoupled Radiation Hardened RD-DICE SRAM Cell for Low-Power Space Applications</span><br>
+                    M. Lavania, N. Surana, I. Anand and J. Mekie. <em>IEEE EDSSC</em>, 2019, pp. 1-3. 
+                    <a class="doi-link" href="https://doi.org/10.1109/EDSSC.2019.8753939" target="_blank">doi: 10.1109/EDSSC.2019.8753939</a>
+                </li>
+                <li>
+                    <span class="pub-title">Energy and Area Efficient 11-T Ternary Content Addressable Memory for High-Speed Search</span><br>
+                    D. Datta, P. Dewangan, N. Surana and J. Mekie. <em>IEEE EDSSC</em>, 2019, pp. 1-3. 
+                    <a class="doi-link" href="https://doi.org/10.1109/EDSSC.2019.8754423" target="_blank">doi: 10.1109/EDSSC.2019.8754423</a>
+                </li>
+                <li>
+                    <span class="pub-title">Soft Error Resilient and Energy Efficient Dual Modular TSPC Flip-Flop</span>
+                    <span class="award-badge">Best Paper Nominee</span><br>
+                    S. Gupta and J. Mekie. <em>VLSID</em>, 2019, pp. 341-346. 
+                    <a class="doi-link" href="https://doi.org/10.1109/VLSID.2019.00077" target="_blank">doi: 10.1109/VLSID.2019.00077</a>
+                </li>
+                <li>
+                    <span class="pub-title">Power and Area Efficient Approximate Heterogeneous 8T SRAM for Multimedia Applications</span><br>
+                    P. K. Bharti, N. Surana and J. Mekie. <em>VLSID</em>, 2019, pp. 139-144. 
+                    <a class="doi-link" href="https://doi.org/10.1109/VLSID.2019.00043" target="_blank">doi: 10.1109/VLSID.2019.00043</a>
+                </li>
+                <li>
+                    <span class="pub-title">Impact of Variations on Synchronizer Performance: An Experimental Study</span><br>
+                    J. Mekie, P. Mukim and K. Kale. <em>VLSID</em>, 2018, pp. 459-460. 
+                    <a class="doi-link" href="https://doi.org/10.1109/VLSID.2018.112" target="_blank">doi: 10.1109/VLSID.2018.112</a>
+                </li>
+                <li>
+                    <span class="pub-title">Single-Error Hardened and Multiple-Error Tolerant Guarded Dual Modular Redundancy Technique</span><br>
+                    S. A. Aketi, J. Mekie and H. Shah. <em>VLSID</em>, 2018, pp. 250-255. 
+                    <a class="doi-link" href="https://doi.org/10.1109/VLSID.2018.71" target="_blank">doi: 10.1109/VLSID.2018.71</a>
+                </li>
+                <li>
+                    <span class="pub-title">Upset hardened latch as data synchronizer</span><br>
+                    N. Kumari and J. Mekie. <em>IEEE EDSSC</em>, 2017, pp. 1-2. 
+                    <a class="doi-link" href="https://doi.org/10.1109/EDSSC.2017.8126562" target="_blank">doi: 10.1109/EDSSC.2017.8126562</a>
+                </li>
+                <li>
+                    <span class="pub-title">Impact of high-κ spacer on circuit level performance of junctionless FinFET</span><br>
+                    N. Surana, J. Mekie and N. R. Mohapatra. <em>IEEE EDSSC</em>, 2017, pp. 1-2. 
+                    <a class="doi-link" href="https://doi.org/10.1109/EDSSC.2017.8126574" target="_blank">doi: 10.1109/EDSSC.2017.8126574</a>
+                </li>
+                <li>
+                    <span class="pub-title">Route-on-Fly: A single cycle router</span><br>
+                    S. N. Ved, A. Bhange, A. Arya and J. Mekie. <em>IEEE SPIN</em>, 2017, pp. 109-114. 
+                    <a class="doi-link" href="https://doi.org/10.1109/SPIN.2017.8049926" target="_blank">doi: 10.1109/SPIN.2017.8049926</a>
+                </li>
+                <li>
+                    <span class="pub-title">A comparative study of input port and crossbar configurations in NoC router microarchitectures</span><br>
+                    S. N. Ved, A. Arya, A. Bhange and J. Mekie. <em>IEEE SPIN</em>, 2017, pp. 121-125. 
+                    <a class="doi-link" href="https://doi.org/10.1109/SPIN.2017.8049928" target="_blank">doi: 10.1109/SPIN.2017.8049928</a>
+                </li>
+                <li>
+                    <span class="pub-title">Short and deep drain MOSFET for space applications: Device and circuit level analysis</span><br>
+                    N. Surana, R. Kaur and J. Mekie. <em>IEEE RADECS</em>, 2016, pp. 1-4. 
+                    <a class="doi-link" href="https://doi.org/10.1109/RADECS.2016.8093169" target="_blank">doi: 10.1109/RADECS.2016.8093169</a>
+                </li>
+                <li>
+                    <span class="pub-title">Guarded dual rail logic for soft error tolerant standard cell library</span><br>
+                    R. Kaur, N. Surana and J. Mekie. <em>IEEE RADECS</em>, 2016, pp. 1-4. 
+                    <a class="doi-link" href="https://doi.org/10.1109/RADECS.2016.8093144" target="_blank">doi: 10.1109/RADECS.2016.8093144</a>
+                </li>
+                <li>
+                    <span class="pub-title">A holistic comparison of static VC allocation versus dynamic VC allocation based NoC routers</span><br>
+                    S. N. Ved, A. Gour, A. Arya and J. Mekie. <em>IEEE ICEE</em>, 2016, pp. 1-4. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ICEmElec.2016.8074419" target="_blank">doi: 10.1109/ICEmElec.2016.8074419</a>
+                </li>
+                <li>
+                    <span class="pub-title">Fault tolerant tactile sensor arrays for prosthesis</span><br>
+                    S. Teja, J. Mekie, J. -J. Cabibihan, N. V. Thakor and S. L. Kukreja. <em>IEEE BioRob</em>, 2016, pp. 31-34. 
+                    <a class="doi-link" href="https://doi.org/10.1109/BIOROB.2016.7523594" target="_blank">doi: 10.1109/BIOROB.2016.7523594</a>
+                </li>
+                <li>
+                    <span class="pub-title">Impact of Optimal Design Point on Performance Metrics of DNN accelerators in FPGA</span><br>
+                    T. Glint, A. Gupta, D. Giftson, G. Shah, V. Patel, R. Chudasama, S. More and J. Mekie. <em>IEEE ISPASS</em>, 23 Jun 2023.
+                </li>
+                <li>
+                    <span class="pub-title">REDRAW: Fast and Efficient Hardware Accelerator with Reduced Reads And Writes for 3D UNet</span><br>
+                    T. Glint, M. Awasthi and J. Mekie. <em>DATE</em>, 2 Jun 2023. 
+                    <a class="doi-link" href="https://doi.org/10.23919/DATE56975.2023.1013719" target="_blank">doi: 10.23919/DATE56975.2023.1013719</a>
+                </li>
+                <li>
+                    <span class="pub-title">Analysis of Conventional, Near-Memory, and In-Memory DNN Accelerators</span><br>
+                    T. Glint, C. K. Jha, M. Awasthi and J. Mekie. <em>IEEE ISPASS</em>, 23 Jun 2023. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ISPASS57527.2023.00049" target="_blank">doi: 10.1109/ISPASS57527.2023.00049</a>
+                </li>
+                <li>
+                    <span class="pub-title">PVC-RAM: Process Variation Aware Charge Domain In-Memory Computing 6T-SRAM for DNNs</span><br>
+                    S. Shubham, S. Pandit, K. Prasad and J. Mekie. <em>ACM/IEEE DAC</em>, 15 Sep 2023. 
+                    <a class="doi-link" href="https://doi.org/10.1109/DAC56929.2023.10247893" target="_blank">doi: 10.1109/DAC56929.2023.10247893</a>
+                </li>
+                <li>
+                    <span class="pub-title">Mixed-8T: Energy-Efficient Configurable Mixed-VT SRAM Design Techniques for Neural Networks</span><br>
+                    N. Surana, P. K. Bharti, B. V. Tej and J. Mekie. <em>VLSID</em>, 14 Sep 2022. 
+                    <a class="doi-link" href="https://doi.org/10.1109/VLSID2022.2022.00043" target="_blank">doi: 10.1109/VLSID2022.2022.00043</a>
+                </li>
+                <li>
+                    <span class="pub-title">Effect of Dynamic Frequency Scaling on Interface Design for Rationally-Related Multi-clocked Systems</span><br>
+                    J. Mekie. <em>IEEE ASYNC</em>, Potsdam, Germany, 2014, pp. 37-44. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ASYNC.2014.13" target="_blank">doi: 10.1109/ASYNC.2014.13</a>
+                </li>
+                <li>
+                    <span class="pub-title">Interface design for rationally clocked GALS systems</span><br>
+                    J. Mekie, S. Chakraborty, G. Venkataramani, P. S. Thiagarajan and D. K. Sharma. <em>IEEE ASYNC</em>, Grenoble, France, 2006, pp. 12 pp.-171. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ASYNC.2006.19" target="_blank">doi: 10.1109/ASYNC.2006.19</a>
+                </li>
+                <li>
+                    <span class="pub-title">Evaluation of pausible clocking for interfacing high speed IP cores in GALS framework</span><br>
+                    J. Mekie, S. Chakraborty and D. K. Sharma. <em>IEEE International Conference on VLSI Design</em>, Mumbai, India, 2004, pp. 559-564. 
+                    <a class="doi-link" href="https://doi.org/10.1109/ICVD.2004.1260978" target="_blank">doi: 10.1109/ICVD.2004.1260978</a>
+                </li>
+            </ol>
+        </div>
+
+        <!-- TAB 3: TALKS, TUTORIALS & CEP -->
+        <div id="talks" class="tab-content">
+            <h3>Tutorials at International Conferences</h3>
+            <ol class="pub-list">
+                <li>
+                    <span class="pub-title">Tutorial T7B: Network on Chips - The Journey Overview</span><br>
+                    J. Mekie and S. N. Ved. <em>27th International Conference on VLSI Design and 13th International Conference on Embedded Systems</em>, Mumbai, India, 2014.
+                </li>
+            </ol>
+
+            <h3 style="margin-top: 1.5rem;">Invited Talks & Keynotes</h3>
+            <ol class="pub-list">
+                <li><span class="pub-title">Approximate circuits and systems for error-resilient applications</span> — C.K. Jha and J. Mekie, Poster at Intel Research Colloquium, Bangalore, Oct 22, 2019.</li>
+                <li><span class="pub-title">Approximate Computing and Storage for low power VLSI Applications</span> — J. Mekie, GujCOST sponsored workshop, Indus University, Ahmedabad, 28 Aug, 2019.</li>
+                <li><span class="pub-title">Energy-Efficient Hardware for AI/ML</span> — J. Mekie, Keynote at ACM-W India Celebrations of Women in Computing (AICWiC 2019), IITGN, July 13, 2019.</li>
+                <li><span class="pub-title">Approximate Memories for Multimedia Applications</span> — J. Mekie, GTU-ISTE FDP on Research Opportunities in VLSI & Signal Processing, VGEC, 13 Feb 2019.</li>
+                <li><span class="pub-title">Internet of things (IoT) using Intel Galileo</span> — J. Mekie, National workshop at BVM Engineering College, Vidyanagar, 22 Aug 2016.</li>
+                <li><span class="pub-title">Intel Galileo platform for IOT</span> — J. Mekie, STTP on Embedded Systems and IoT, BVM, Vidyanagar, 8 Jan 2016.</li>
+                <li><span class="pub-title">Network on chips at IITGN</span> — S. N. Ved and J. Mekie, Poster at Intel Academic forum (IAF), Bangalore, Oct 2015.</li>
+                <li><span class="pub-title">Intel higher education program at IITGN</span> — J. Mekie, Poster at Intel Academic forum (IAF), Bangalore, Oct 2015.</li>
+                <li><span class="pub-title">Building new generation chips using asynchronous logic</span> — J. Mekie, Poster at Intel Asia Innovation Summit, Taiwan, Nov 2014.</li>
+                <li><span class="pub-title">Research overview in multi-core architectures</span> — J. Mekie, Research scholars meet of TEQIP colleges, IPR, Ahmedabad, Nov 2015.</li>
+                <li><span class="pub-title">Women Engineer and Career</span> — J. Mekie, Panel member, WIE special track, IEEE VDAT, Ahmedabad, June 2015.</li>
+                <li><span class="pub-title">Network on chip architectures</span> — J. Mekie, STTP on Recent developments in VLSI and Image processing, VGEC, Gujarat, May 2015.</li>
+                <li><span class="pub-title">An overview of Asynchronous circuit design</span> — J. Mekie, STTP on Recent developments in VLSI and Image processing, VGEC, Gujarat, May 2015.</li>
+                <li><span class="pub-title">Research in VLSI design</span> — J. Mekie, Invited lecture, Parul Institute, Vadodara, May 2015.</li>
+                <li><span class="pub-title">Overview of Network-on-Chip architectures</span> — J. Mekie, STTP at Marwadi Institute, Rajkot, March 19, 2015.</li>
+                <li><span class="pub-title">Higher education in premier institutions and future prospects</span> — J. Mekie, Techfest FELICIFIC 2015, DDU, Nadiad, March 11, 2015.</li>
+                <li><span class="pub-title">Research in VLSI design</span> — J. Mekie, GEC Gandhinagar, Jan 2015.</li>
+                <li><span class="pub-title">Building new generation chips using Asynchronous logic</span> — J. Mekie, Intel Asia Innovation Summit, Taipei, TW, Nov. 18-19, 2014.</li>
+                <li><span class="pub-title">Interfacing solutions for Globally asynchronous locally synchronous designs</span> — J. Mekie, Innovations for High Performance (iHP), Germany, May 2014.</li>
+                <li><span class="pub-title">Network-on-Chip architectures</span> — J. Mekie, STTP on VLSI Signal processing, Nagpur, March 2014.</li>
+                <li><span class="pub-title">Globally asynchronous, Locally-synchronous Designs</span> — J. Mekie, STTP on VLSI Signal processing, Nagpur, March 2014.</li>
+                <li><span class="pub-title">Innovations and Emerging Trends in Embedded Systems and VLSI Design</span> — J. Mekie, Keynote at NCIET, Jan 2014.</li>
+                <li><span class="pub-title">Asynchronous circuit design</span> — J. Mekie, Parul Institute, Vadodara, Jan 2014.</li>
+                <li><span class="pub-title">Network-on-Chip architectures</span> — J. Mekie, Parul Institute, Vadodara, Jan 2014.</li>
+                <li><span class="pub-title">Globally asynchronous, Locally-synchronous Designs</span> — J. Mekie, IEEE INDICON, Mumbai, Dec 2013.</li>
+                <li><span class="pub-title">Emerging Trends in Embedded Systems and VLSI Design</span> — J. Mekie, NCEVT, Anand, May 2013.</li>
+                <li><span class="pub-title">Reasoning about timing in multi-clocked systems: A tool demo</span> — J. Mekie, G. Samuel, S. Garg and S. Chakraborty, Workshop on Formal Methods, IIT Bombay, June 2005.</li>
+            </ol>
+
+            <h3 style="margin-top: 1.5rem;">Continuing Education Programs (CEP) Conducted</h3>
+            <ol class="pub-list">
+                <li><span class="pub-title">Hands-on Workshop on Embedded systems and Internet-of-Things with Intel Galileo</span> — May 4-5, 2015.</li>
+                <li><span class="pub-title">Workshop on Embedded systems and Internet-of-Things</span> — Sponsored by Intel India Higher Education Program, April 30-May 2, 2015.</li>
+                <li><span class="pub-title">Embedded systems for Low cost automation</span> — Lectures/labs for CEP on Low-Cost Hi-Tech Automation (LCHA), Oct 2015, May 2015, Sept 2014, May 2014.</li>
+                <li><span class="pub-title">Low-cost automation: Electronics perspective</span> — CEP Course on LCHA, Nov 2013.</li>
+                <li><span class="pub-title">Role of Electronics in Low-cost automation</span> — CEP Course conducted at Ashok Leyland, January 2010.</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL SERVICE -->
+    <section class="section-card">
+        <h2>Professional Services & Leadership</h2>
+        <div class="grid-2">
+            <div>
+                <h3>Journal Reviewer & TPC Roles</h3>
+                <ul>
+                    <li><strong>Journal Reviewer:</strong> Nature Electronics (2025), IEEE Design & Test, IEEE Sensors Journal, IEEE TCAS-I, IEEE TCAS-II, Microelectronics Reliability.</li>
+                    <li><strong>Conference Reviewer:</strong> ISCAS, DAC 2024, VLSID 2024.</li>
+                    <li><strong>Steering & Program Committee:</strong> ASYNC (2015, 2016), VLSID (2024–2026), ISLPED (2025).</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Track & Committee Chairs</h3>
+                <ul>
+                    <li><strong>Track Co-Chair:</strong> VLSID (2026, 2025, 2024), ISLPED (2025).</li>
+                    <li><strong>WIE Chair / Co-Chair:</strong> iSES 2024, VDAT 2022, VLSID 2021.</li>
+                    <li><strong>Education Chair:</strong> IEEE VDAT 2015, Ahmedabad.</li>
+                    <li><strong>Session Chair:</strong> iSES 2023, VLSID 2018.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    function switchTab(event, tabId) {
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+        event.currentTarget.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
